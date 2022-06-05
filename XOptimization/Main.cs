@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,10 @@ namespace XOptimization
         public Main()
         {
             InitializeComponent();
+            if (!Directory.Exists(XOptimization.Helper.GetCurrentDirectory()+"\\Data"))
+            {
+                Directory.CreateDirectory(XOptimization.Helper.GetCurrentDirectory()+"\\Data");
+            }
         }
 
         private void btnCompress_ItemClick(object sender, ItemClickEventArgs e)
