@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\XOptimization"
   ],
-  "SelectedNode": "\\Optimization.sln",
+  "SelectedNode": "\\XOptimization\\TitleUC.cs",
   "PreviewInSolutionExplorer": false
 }

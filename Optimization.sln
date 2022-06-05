@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XOptimization", "XOptimization\XOptimization.csproj", "{5AF6B0A7-6B54-417D-8120-FA4B343EC3DD}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "X-Optimize", "X-Optimize\X-Optimize.vdproj", "{6C89F774-0070-45C1-903E-46A2F89BAE05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +17,17 @@ Global
 		{5AF6B0A7-6B54-417D-8120-FA4B343EC3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AF6B0A7-6B54-417D-8120-FA4B343EC3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AF6B0A7-6B54-417D-8120-FA4B343EC3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C89F774-0070-45C1-903E-46A2F89BAE05}.Debug|Any CPU.ActiveCfg = Debug
+		{6C89F774-0070-45C1-903E-46A2F89BAE05}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8AA5896-3BCD-4237-BD34-C3DC5BB77708}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal
