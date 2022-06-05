@@ -241,8 +241,8 @@ namespace XOptimization
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            string filePath = txtReport.Text + "\\Report" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
-            using (var writer = new StreamWriter(filePath))
+            string filePath = txtReport.Text + "\\Report_Compression_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
+            using (var writer = new StreamWriter(filePath, false, new UTF8Encoding(true)))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 csv.WriteRecords(logs);

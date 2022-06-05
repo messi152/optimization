@@ -42,8 +42,8 @@ namespace XOptimization
         private void btnTranslate_ItemClick(object sender, ItemClickEventArgs e)
         {
             pcMain.Controls.Clear();
-            pcMain.Controls.Add(new TranslationUC(this));
-            pcMain.Controls.Add(new TranslationUC(this));
+            pcMain.Controls.Add(new TranslatorUC(this));
+            pcMain.Controls.Add(new TranslatorUC(this));
             pcMain.Refresh();
         }
     }

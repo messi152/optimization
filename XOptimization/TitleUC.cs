@@ -94,6 +94,24 @@ namespace XOptimization
                 MessageBox.Show("Cần nhập số kí tự tối đa", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            List<string> formats = txtFormat.Text.Split(new[] { "+" }, StringSplitOptions.None).ToList();
+            int countMain = 0;
+            foreach(string format in formats)
+            {
+                if (!format.Equals("{main}") && !format.Equals("{sub}"))
+                {
+                    MessageBox.Show("Cấu trúc tiêu đề sai định dạng", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (format.Equals("{main}")){
+                    countMain++;
+                    if (countMain>1)
+                    {
+                        MessageBox.Show("Cấu trúc tiêu đề sai định dạng. Chỉ có 1 tiêu đề chính", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
             int countFormat = 0, countSub = 0;
             txtFormat.Text.Split(new[] { "+" }, StringSplitOptions.None).ToList().ForEach(item => countFormat = (StringUtils.IsNotEmpty(item) && item.Equals("{sub}")) ? countFormat + 1 : countFormat);
             txtSubTitle.Text.Split(new[] { "," }, StringSplitOptions.None).ToList().ForEach(item => countSub = (StringUtils.IsNotEmpty(item)) ? countSub + 1 : countSub);
@@ -246,8 +264,8 @@ namespace XOptimization
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            string filePath = txtReport.Text + "\\Report" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
-            using (var writer = new StreamWriter(filePath))
+            string filePath = txtReport.Text + "\\Report_Title_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
+            using (var writer = new StreamWriter(filePath, false, new UTF8Encoding(true)))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 csv.WriteRecords(logs);

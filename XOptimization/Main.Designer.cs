@@ -38,10 +38,8 @@ namespace XOptimization
             this.btnTitleReport = new DevExpress.XtraBars.BarButtonItem();
             this.compressTab = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TitleTab = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pcMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
@@ -109,8 +107,7 @@ namespace XOptimization
             // compressTab
             // 
             this.compressTab.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup1});
             this.compressTab.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("compressTab.ImageOptions.SvgImage")));
             this.compressTab.Name = "compressTab";
             this.compressTab.Text = "Nén ảnh";
@@ -121,17 +118,10 @@ namespace XOptimization
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Thực hiện";
             // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnCompressionReport);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Thống kê";
-            // 
             // TitleTab
             // 
             this.TitleTab.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup2});
             this.TitleTab.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("TitleTab.ImageOptions.SvgImage")));
             this.TitleTab.Name = "TitleTab";
             this.TitleTab.Text = "Tạo tiêu đề";
@@ -142,12 +132,6 @@ namespace XOptimization
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTranslate);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Thực hiện";
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnTitleReport);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "Thống kê";
             // 
             // ribbonStatusBar
             // 
@@ -189,13 +173,11 @@ namespace XOptimization
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.Ribbon.RibbonPage TitleTab;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btnCompressionReport;
         private DevExpress.XtraBars.BarButtonItem btnCompress;
         private DevExpress.XtraBars.BarButtonItem btnCreateTitle;
         private DevExpress.XtraBars.BarButtonItem btnTranslate;
         private DevExpress.XtraBars.BarButtonItem btnTitleReport;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private System.Windows.Forms.Panel pcMain;
     }
 }

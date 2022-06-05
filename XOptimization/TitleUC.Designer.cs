@@ -48,6 +48,12 @@ namespace XOptimization
             this.txtReport = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriTitle.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxChar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFormat.Properties)).BeginInit();
@@ -103,9 +109,9 @@ namespace XOptimization
             // btnSaveConfig
             // 
             this.btnSaveConfig.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveConfig.ImageOptions.SvgImage")));
-            this.btnSaveConfig.Location = new System.Drawing.Point(717, 290);
+            this.btnSaveConfig.Location = new System.Drawing.Point(665, 290);
             this.btnSaveConfig.Name = "btnSaveConfig";
-            this.btnSaveConfig.Size = new System.Drawing.Size(146, 41);
+            this.btnSaveConfig.Size = new System.Drawing.Size(169, 41);
             this.btnSaveConfig.TabIndex = 44;
             this.btnSaveConfig.Text = "Lưu cấu hình";
             this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
@@ -131,9 +137,9 @@ namespace XOptimization
             // btnCreate
             // 
             this.btnCreate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCreate.ImageOptions.SvgImage")));
-            this.btnCreate.Location = new System.Drawing.Point(869, 290);
+            this.btnCreate.Location = new System.Drawing.Point(840, 290);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(104, 41);
+            this.btnCreate.Size = new System.Drawing.Size(124, 41);
             this.btnCreate.TabIndex = 40;
             this.btnCreate.Text = "Tạo";
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -206,17 +212,83 @@ namespace XOptimization
             // btnExport
             // 
             this.btnExport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExport.ImageOptions.SvgImage")));
-            this.btnExport.Location = new System.Drawing.Point(979, 290);
+            this.btnExport.Location = new System.Drawing.Point(970, 290);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(162, 41);
+            this.btnExport.Size = new System.Drawing.Size(171, 41);
             this.btnExport.TabIndex = 53;
             this.btnExport.Text = "Xuất báo cáo";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl8.Appearance.Options.UseForeColor = true;
+            this.labelControl8.Location = new System.Drawing.Point(230, 122);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(18, 16);
+            this.labelControl8.TabIndex = 54;
+            this.labelControl8.Text = "(*)";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl9.Appearance.Options.UseForeColor = true;
+            this.labelControl9.Location = new System.Drawing.Point(207, 159);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(18, 16);
+            this.labelControl9.TabIndex = 55;
+            this.labelControl9.Text = "(*)";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl10.Appearance.Options.UseForeColor = true;
+            this.labelControl10.Location = new System.Drawing.Point(195, 198);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(18, 16);
+            this.labelControl10.TabIndex = 56;
+            this.labelControl10.Text = "(*)";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl11.Appearance.Options.UseForeColor = true;
+            this.labelControl11.Location = new System.Drawing.Point(250, 235);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(18, 16);
+            this.labelControl11.TabIndex = 57;
+            this.labelControl11.Text = "(*)";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl12.Appearance.Options.UseForeColor = true;
+            this.labelControl12.Location = new System.Drawing.Point(789, 122);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(18, 16);
+            this.labelControl12.TabIndex = 58;
+            this.labelControl12.Text = "(*)";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl13.Appearance.Options.UseForeColor = true;
+            this.labelControl13.Location = new System.Drawing.Point(789, 160);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(18, 16);
+            this.labelControl13.TabIndex = 59;
+            this.labelControl13.Text = "(*)";
             // 
             // TitleUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelControl13);
+            this.Controls.Add(this.labelControl12);
+            this.Controls.Add(this.labelControl11);
+            this.Controls.Add(this.labelControl10);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.txtReport);
@@ -267,5 +339,11 @@ namespace XOptimization
         private DevExpress.XtraEditors.TextEdit txtReport;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.SimpleButton btnExport;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
     }
 }

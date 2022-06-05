@@ -101,11 +101,11 @@
     <Compile Include="TitleUC.Designer.cs">
       <DependentUpon>TitleUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="TranslationUC.cs">
+    <Compile Include="TranslatorUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TranslationUC.Designer.cs">
-      <DependentUpon>TranslationUC.cs</DependentUpon>
+    <Compile Include="TranslatorUC.Designer.cs">
+      <DependentUpon>TranslatorUC.cs</DependentUpon>
     </Compile>
     <Compile Include="WaitingForm.cs">
       <SubType>Form</SubType>
@@ -132,8 +132,8 @@
     <EmbeddedResource Include="TitleUC.resx">
       <DependentUpon>TitleUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TranslationUC.resx">
-      <DependentUpon>TranslationUC.cs</DependentUpon>
+    <EmbeddedResource Include="TranslatorUC.resx">
+      <DependentUpon>TranslatorUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitingForm.resx">
       <DependentUpon>WaitingForm.cs</DependentUpon>
