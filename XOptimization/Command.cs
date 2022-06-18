@@ -51,10 +51,11 @@ namespace XOptimization
         }
         public static void CopyFolder(String source, String target)
         {
-            if (Directory.Exists(source) && Directory.Exists(target))
+            if (Directory.Exists(source))
             {
                 String folderName = new DirectoryInfo(source).Name;
-                Helper.RunCMD("XCopy /E /I " + "\""+source+ "\"" + " " + "\""+target+ "\"" + "\\" + folderName);
+                Helper.RunCMD("XCopy /E /I " + "\""+source+ "\"" + " " + "\""+target+ "\"");
+                //Helper.RunCMD("XCopy /E /I " + "\"" + source + "\"" + " " + "\"" + target + "\"" + "\\" + folderName);
             }
         }
         public static void CopyFile(String source, String target)

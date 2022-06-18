@@ -23,6 +23,7 @@ namespace XOptimization
     {
         List<TitlePerformance> logs;
         Main main;
+        ITranslator translator;
         public TranslatorUC()
         {
             InitializeComponent();
@@ -49,8 +50,22 @@ namespace XOptimization
                 TranslatorInfo setting = JsonConvert.DeserializeObject<TranslatorInfo>(File.ReadAllText(Helper.GetCurrentDirectory() + "\\Data\\translator.json"));
                 txtTarget.Text = setting.Target;
                 txtSource.Text = setting.Source;
+                txtTranslatorSource.Text = setting.TranslatorSource;
+                cbbGoogle.Checked = setting.IsGooogleUsing;
                 cbbLanguage.SelectedItem = setting.Language;
                 txtReport.Text = setting.ReportDir;
+                if (cbbGoogle.Checked)
+                {
+                    translator = new GoogleTranslator();
+                    txtTranslatorSource.Enabled = false;
+                    btnChooseTranslatorFile.Visible = false;
+                }
+                else
+                {
+                    translator = new ExcelTranslator(txtTranslatorSource.Text);
+                    txtTranslatorSource.Enabled = true;
+                    btnChooseTranslatorFile.Visible = true;
+                }
             }
             catch (Exception)
             {
@@ -103,6 +118,11 @@ namespace XOptimization
             if (!StringUtils.IsNotEmpty((string)cbbLanguage.SelectedItem))
             {
                 MessageBox.Show("Cần nhập ngôn ngữ chuyển", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!cbbGoogle.Checked && (!StringUtils.IsNotEmpty(txtTranslatorSource.Text) || !File.Exists(txtTranslatorSource.Text)))
+            {
+                MessageBox.Show("Nguồn dịch chưa nhập hoặc không tồn tại", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (!StringUtils.IsNotEmpty(txtReport.Text))
@@ -166,29 +186,27 @@ namespace XOptimization
             {
                 foreach (String dir in subDirs)
                 {
-                    string extraDir = dir.Replace(source, "");
-                    Translate(dir, dest + extraDir, language);
+                    performance = new TitlePerformance();
+                    string extraDir = dir.Replace(source, "").Replace("\\","");
+                    var newPath = dest + "\\" + translator.Execute(extraDir, language);
+                    Command.CopyFolder(dir, newPath);
+                    if (source.Equals(newPath))
+                    {
+                        performance.Note = "Lỗi dịch tiêu đề";
+                    }
+                    else
+                    {
+                        performance.Dest = newPath;
+                        performance.DestName = new FileInfo(newPath).Name;
+                    }
+                    performance.Source = source;
+                    performance.SourceName = new FileInfo(source).Name;
+                    logs.Add(performance);
+                    //Translate(dir, dest + extraDir, language);
                 }
-            }
-            if (!source.Equals(txtSource.Text))
-            {
-                performance = new TitlePerformance();
-                var folderName = new DirectoryInfo(source).Name;
-                var newPath = Command.RenameFolder(dest, TranslateText(folderName, language));
-                if (source.Equals(newPath))
-                {
-                    performance.Note = "Lỗi dịch tiêu đề";
-                }
-                else
-                {
-                    performance.Dest = newPath;
-                    performance.DestName = new FileInfo(newPath).Name;
-                }
-                performance.Source = source;
-                performance.SourceName = new FileInfo(source).Name;
-                logs.Add(performance);
             }
         }
+
         private string TranslateImageTitle(string filePath, string dest, string language)
         {
             if (!Directory.Exists(dest))
@@ -196,30 +214,12 @@ namespace XOptimization
                 Directory.CreateDirectory(dest);
             }
             var fileName = Path.GetFileName(filePath);
-            dest = dest + "\\" + TranslateText(fileName,language);
+            var extension = Path.GetExtension(filePath);
+            dest = dest + "\\" + translator.Execute(fileName.Replace(extension,""), language).Trim()+extension;
             Command.CopyFile(filePath, dest);
             return dest;
         }
-        public string TranslateText(string input, string language)
-        {
-            string url = String.Format
-            ("https://translate.googleapis.com/translate_a/single?client=gtx&sl={0}&tl={1}&dt=t&q={2}",
-             "en", language, Uri.EscapeUriString(input));
-            HttpClient httpClient = new HttpClient();
-            string result = httpClient.GetStringAsync(url).Result;
-            var jsonData = new JavaScriptSerializer().Deserialize<List<dynamic>>(result);
-            var translationItems = jsonData[0];
-            string translation = "";
-            foreach (object item in translationItems)
-            {
-                IEnumerable translationLineObject = item as IEnumerable;
-                IEnumerator translationLineString = translationLineObject.GetEnumerator();
-                translationLineString.MoveNext();
-                translation += string.Format(" {0}", Convert.ToString(translationLineString.Current));
-            }
-            if (translation.Length > 1) { translation = translation.Substring(1); };
-            return translation;
-        }
+
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
             if (ValidateData())
@@ -233,6 +233,8 @@ namespace XOptimization
                         compression.Target = txtTarget.Text;
                         compression.Language = (string)cbbLanguage.SelectedItem;
                         compression.ReportDir = txtReport.Text;
+                        compression.IsGooogleUsing = cbbGoogle.Checked;
+                        compression.TranslatorSource = txtTranslatorSource.Text;
                         Helper.WriteText(Helper.GetCurrentDirectory() + "\\Data\\translator.json", JsonConvert.SerializeObject(compression, Newtonsoft.Json.Formatting.Indented));
                         MessageBox.Show("Lưu cấu hình thành công", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
@@ -271,6 +273,31 @@ namespace XOptimization
                 /* run your code here */
                 Command.OpenFile(filePath);
             }).Start();
+        }
+
+        private void btnChooseTranslatorFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                txtTranslatorSource.Text = openFileDialog.FileName;
+            }
+        }
+
+        private void cbbGoogle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbbGoogle.Checked)
+            {
+                translator = new GoogleTranslator();
+                txtTranslatorSource.Enabled = false;
+                btnChooseTranslatorFile.Visible = false;
+            }
+            else
+            {
+                translator = new ExcelTranslator(txtTranslatorSource.Text);
+                txtTranslatorSource.Enabled = true;
+                btnChooseTranslatorFile.Visible = true;
+            }
         }
     }
 }

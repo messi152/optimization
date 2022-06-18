@@ -231,6 +231,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3025F4DBE34D4139B4940CB451B70BA5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_34ADE116EDFAEACD1EC38BC087966382"
         "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
         "MsmSig" = "8:_UNDEFINED"
@@ -461,6 +467,12 @@
         {
         "MsmKey" = "8:_65F383ADA68A86C5F41121EDBF0450C4"
         "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_66E38E7B7B8245A0853F20AB9433CED2"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -753,68 +765,68 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B6591975D37742F98BB63D17178403B6"
+        "MsmKey" = "8:_B8054108818671884AFF14BC1CCDAA0E"
+        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B8054108818671884AFF14BC1CCDAA0E"
+        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B835D8B93FE64D581F0F96849100BF90"
+        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B835D8B93FE64D581F0F96849100BF90"
+        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C216A07DA601E888F81367DEE1D74FB1"
+        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C216A07DA601E888F81367DEE1D74FB1"
+        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C2250EEA78320993D10D00617BF087AD"
+        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C2250EEA78320993D10D00617BF087AD"
+        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CEC7D0F49E041BE5EC09070A24F47D00"
+        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CEC7D0F49E041BE5EC09070A24F47D00"
+        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D634DC1E30A5412B9C452BF1C906F527"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8054108818671884AFF14BC1CCDAA0E"
-        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8054108818671884AFF14BC1CCDAA0E"
-        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B835D8B93FE64D581F0F96849100BF90"
-        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B835D8B93FE64D581F0F96849100BF90"
-        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C216A07DA601E888F81367DEE1D74FB1"
-        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C216A07DA601E888F81367DEE1D74FB1"
-        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C2250EEA78320993D10D00617BF087AD"
-        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C2250EEA78320993D10D00617BF087AD"
-        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CEC7D0F49E041BE5EC09070A24F47D00"
-        "OwnerKey" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CEC7D0F49E041BE5EC09070A24F47D00"
-        "OwnerKey" = "8:_88301C87FDA14B83BF1C4F83DCD451F5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2010,6 +2022,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3025F4DBE34D4139B4940CB451B70BA5"
+            {
+            "SourcePath" = "8:..\\XOptimization\\bin\\Debug\\Data\\compression.json"
+            "TargetName" = "8:compression.json"
+            "Tag" = "8:"
+            "Folder" = "8:_6682AD89539042D19A09164B49E91673"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_34ADE116EDFAEACD1EC38BC087966382"
             {
             "AssemblyRegister" = "3:1"
@@ -2442,6 +2474,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66E38E7B7B8245A0853F20AB9433CED2"
+            {
+            "SourcePath" = "8:..\\XOptimization\\bin\\Debug\\Data\\translator.json"
+            "TargetName" = "8:translator.json"
+            "Tag" = "8:"
+            "Folder" = "8:_6682AD89539042D19A09164B49E91673"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_67E22A81070ADE07E98C03AAF5272DA8"
@@ -3002,26 +3054,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6591975D37742F98BB63D17178403B6"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\icon-256x256.ico"
-            "TargetName" = "8:icon-256x256.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_B9C7DAAE1B0A4EE6BB40D75A1CF6C858"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B8054108818671884AFF14BC1CCDAA0E"
             {
             "AssemblyRegister" = "3:1"
@@ -3175,6 +3207,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D634DC1E30A5412B9C452BF1C906F527"
+            {
+            "SourcePath" = "8:..\\XOptimization\\bin\\Debug\\Data\\title.json"
+            "TargetName" = "8:title.json"
+            "Tag" = "8:"
+            "Folder" = "8:_6682AD89539042D19A09164B49E91673"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D9800C812FEF4E093A0AF0136AED3A12"
@@ -3756,7 +3808,7 @@
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_6682AD89539042D19A09164B49E91673"
                     {
                     "Name" = "8:Data"
-                    "AlwaysCreate" = "11:FALSE"
+                    "AlwaysCreate" = "11:TRUE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_211CBEDF739F42CA904FD6535B070DFD"
@@ -3783,7 +3835,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:X-Optimize"
         "ProductCode" = "8:{A9B46C26-0EB0-47CC-B541-6AAE53B16A35}"
-        "PackageCode" = "8:{696F88E6-9A9D-4FCF-86C5-68A2CC9B369D}"
+        "PackageCode" = "8:{084D31F2-675D-4FE6-BEE8-F90663A84049}"
         "UpgradeCode" = "8:{5022BDBF-DB4C-4BE7-BB00-78CABD07FC95}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -3914,7 +3966,7 @@
             "Target" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
             "Folder" = "8:_F4EECF93ADDA4587BABE19C826E17117"
             "WorkingFolder" = "8:_F4EECF93ADDA4587BABE19C826E17117"
-            "Icon" = "8:_B6591975D37742F98BB63D17178403B6"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6AAD1CED02F647DFB210A34BCC8F0B80"
@@ -3928,7 +3980,7 @@
             "Target" = "8:_173A25CBA6C64508A37FD0DB919AC6F4"
             "Folder" = "8:_B9C7DAAE1B0A4EE6BB40D75A1CF6C858"
             "WorkingFolder" = "8:_F4EECF93ADDA4587BABE19C826E17117"
-            "Icon" = "8:_B6591975D37742F98BB63D17178403B6"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }

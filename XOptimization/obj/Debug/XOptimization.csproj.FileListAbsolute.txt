@@ -133,7 +133,6 @@ C:\Users\ADMIN\source\repos\XOptimization\XOptimization\bin\Debug\de\DevExpress.
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll
-C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.csproj.AssemblyReference.cache
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.CompressionUC.resources
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.Main.resources
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.Properties.Resources.resources

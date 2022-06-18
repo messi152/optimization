@@ -12,5 +12,7 @@ namespace XOptimization
         public string Target { get; set; }
         public string Language { get; set; }
         public string ReportDir { get; set; }
+        public bool IsGooogleUsing { get; set; }
+        public string TranslatorSource { get; set; }
     }
 }

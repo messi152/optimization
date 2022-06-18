@@ -40,11 +40,15 @@ namespace XOptimization
             {
                 TitleInfo setting = JsonConvert.DeserializeObject<TitleInfo>(File.ReadAllText(Helper.GetCurrentDirectory() + "\\Data\\title.json"));
                 txtSource.Text = setting.Source;
+                txtOutput.Text = setting.Dest;
                 txtMaxChar.Text = setting.MaxOfCharacter.ToString();
                 txtFormat.Text = setting.Format;
                 txtPriTitle.Text = setting.PriTitle;
                 txtSubTitle.Text = setting.SubTitle;
                 txtReport.Text = setting.ReportDir;
+                txtBrand.Text = setting.Brand;
+                txtAttr.Text = setting.Attr;
+                cbbTranslate.Checked = setting.IsTranslated;
             }
             catch (Exception)
             {
@@ -66,7 +70,12 @@ namespace XOptimization
         {
             if (!StringUtils.IsNotEmpty(txtSource.Text))
             {
-                MessageBox.Show("Cần nhập đường dẫn nguồn", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cần nhập đường dẫn ảnh SP", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!StringUtils.IsNotEmpty(txtOutput.Text))
+            {
+                MessageBox.Show("Cần nhập đường dẫn kết quả", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (!StringUtils.IsNotEmpty(txtFormat.Text))
@@ -84,6 +93,11 @@ namespace XOptimization
                 MessageBox.Show("Cần nhập tiêu đề chính", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (!StringUtils.IsNotEmpty(txtBrand.Text))
+            {
+                MessageBox.Show("Cần nhập brand", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             if (!StringUtils.IsNotEmpty(txtSubTitle.Text))
             {
                 MessageBox.Show("Cần nhập tiêu đề phụ", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -95,10 +109,10 @@ namespace XOptimization
                 return false;
             }
             List<string> formats = txtFormat.Text.Split(new[] { "+" }, StringSplitOptions.None).ToList();
-            int countMain = 0;
+            int countMain = 0, countBrand = 0, countAttr = 0;
             foreach(string format in formats)
             {
-                if (!format.Equals("{main}") && !format.Equals("{sub}"))
+                if (!format.Equals("{main}") && !format.Equals("{sub}") && !format.Equals("{brand}") && !format.Equals("{attr}"))
                 {
                     MessageBox.Show("Cấu trúc tiêu đề sai định dạng", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -111,10 +125,33 @@ namespace XOptimization
                         return false;
                     }
                 }
+                if (format.Equals("{brand}"))
+                {
+                    countBrand++;
+                    if (countBrand > 1)
+                    {
+                        MessageBox.Show("Cấu trúc tiêu đề sai định dạng. Chỉ có 1 brand", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+                if (format.Equals("{attr}"))
+                {
+                    countAttr++;
+                    if (countAttr > 1)
+                    {
+                        MessageBox.Show("Cấu trúc tiêu đề sai định dạng. Chỉ có 1 thuộc tính", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    if (!StringUtils.IsNotEmpty(txtAttr.Text))
+                    {
+                        MessageBox.Show("Cần nhập thuộc tính", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
             }
             int countFormat = 0, countSub = 0;
             txtFormat.Text.Split(new[] { "+" }, StringSplitOptions.None).ToList().ForEach(item => countFormat = (StringUtils.IsNotEmpty(item) && item.Equals("{sub}")) ? countFormat + 1 : countFormat);
-            txtSubTitle.Text.Split(new[] { "," }, StringSplitOptions.None).ToList().ForEach(item => countSub = (StringUtils.IsNotEmpty(item)) ? countSub + 1 : countSub);
+            txtSubTitle.Text.Split(new[] { ";" }, StringSplitOptions.None).ToList().ForEach(item => countSub = (StringUtils.IsNotEmpty(item)) ? countSub + 1 : countSub);
             if (countFormat > countSub)
             {
                 MessageBox.Show("Cần bổ sung thêm tiêu đề phụ phù hợp với cấu trúc tiêu đề", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -157,7 +194,7 @@ namespace XOptimization
             {
                 foreach (String dir in subDirs)
                 {
-                    ChangeTitle(dir);
+                    //ChangeTitle(dir);
                     ChangeTitle(TYPE.FOLDER, dir);
                 }
             }
@@ -172,7 +209,7 @@ namespace XOptimization
             try
             {
                 List<string> subs = new List<string>();
-                string[] subArrs = txtSubTitle.Text.Split(new[] { "," }, StringSplitOptions.None);
+                string[] subArrs = txtSubTitle.Text.Split(new[] { ";" }, StringSplitOptions.None);
                 foreach (string sub in subArrs)
                 {
                     if (StringUtils.IsNotEmpty(sub))
@@ -184,9 +221,14 @@ namespace XOptimization
                 {
                     foreach (String item in formats)
                     {
-                        if (item.Trim() == "{main}") result += txtPriTitle.Text + " ";
-                        else
+                        if (item.Trim() == "{main}") result += txtPriTitle.Text.Trim() + " ";
+                        else if (item.Trim() == "{attr}") result += txtAttr.Text.Trim() + " ";
+                        else if (item.Trim() == "{brand}")
                         {
+                            if (!cbbTranslate.Checked) result += txtBrand.Text.Trim() + " ";
+                            else result += "-" + txtBrand.Text.Trim() + "- ";
+                        }
+                        else {
                             Random ran = new Random();
                             if (subs != null && subs.Count() > 0)
                             {
@@ -201,11 +243,14 @@ namespace XOptimization
                     result = result.Substring(0, Convert.ToInt32(txtMaxChar.Text));
                 if (type == TYPE.FILE)
                 {
-                    newPath = Command.RenameFile(path, result);
+                    string extension = Path.GetExtension(path);
+                    newPath = txtOutput.Text + "\\" + result.Trim() + extension;
+                    Command.CopyFile(path, newPath);
                 }
                 else
                 {
-                    newPath = Command.RenameFolder(path, result);
+                    newPath = txtOutput.Text + "\\" + result.Trim();
+                    Command.CopyFolder(path, newPath);
                 }
                 if (path.Equals(newPath))
                 {
@@ -236,11 +281,15 @@ namespace XOptimization
                     {
                         TitleInfo setting = new TitleInfo();
                         setting.Source = txtSource.Text;
+                        setting.Dest = txtOutput.Text;
                         setting.MaxOfCharacter = Convert.ToInt32(txtMaxChar.Text);
                         setting.Format = txtFormat.Text;
                         setting.PriTitle = txtPriTitle.Text;
                         setting.SubTitle = txtSubTitle.Text;
                         setting.ReportDir = txtReport.Text;
+                        setting.Brand = txtBrand.Text;
+                        setting.Attr = txtAttr.Text;
+                        setting.IsTranslated = cbbTranslate.Checked;
                         Helper.WriteText(Helper.GetCurrentDirectory() + "\\Data\\title.json", JsonConvert.SerializeObject(setting, Newtonsoft.Json.Formatting.Indented));
                         MessageBox.Show("Lưu cấu hình thành công", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
@@ -277,6 +326,21 @@ namespace XOptimization
                 /* run your code here */
                 Command.OpenFile(filePath);
             }).Start();
+        }
+
+        private void btnHint_MouseHover(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cấu trúc định đạng tiêu đề có dạng:{brand}+{main}+{sub}+{attr}\n" , "Gợi ý", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void btnChooseDest_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.ShowNewFolderButton = true;
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                txtOutput.Text = folderBrowserDialog.SelectedPath;
+            }
         }
     }
 }

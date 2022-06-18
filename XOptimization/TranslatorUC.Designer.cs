@@ -41,23 +41,29 @@ namespace XOptimization
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtSource = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnReport = new DevExpress.XtraEditors.SimpleButton();
-            this.txtReport = new DevExpress.XtraEditors.TextEdit();
+            this.btnChooseTranslatorFile = new DevExpress.XtraEditors.SimpleButton();
+            this.txtTranslatorSource = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.btnReport = new DevExpress.XtraEditors.SimpleButton();
+            this.txtReport = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.cbbGoogle = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtTarget.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSource.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTranslatorSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReport.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbGoogle.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveConfig
             // 
             this.btnSaveConfig.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveConfig.ImageOptions.SvgImage")));
-            this.btnSaveConfig.Location = new System.Drawing.Point(131, 264);
+            this.btnSaveConfig.Location = new System.Drawing.Point(131, 329);
             this.btnSaveConfig.Name = "btnSaveConfig";
             this.btnSaveConfig.Size = new System.Drawing.Size(153, 41);
             this.btnSaveConfig.TabIndex = 28;
@@ -103,7 +109,7 @@ namespace XOptimization
             // btnCreate
             // 
             this.btnCreate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCreate.ImageOptions.SvgImage")));
-            this.btnCreate.Location = new System.Drawing.Point(290, 264);
+            this.btnCreate.Location = new System.Drawing.Point(290, 329);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(121, 41);
             this.btnCreate.TabIndex = 23;
@@ -150,35 +156,35 @@ namespace XOptimization
             this.labelControl1.TabIndex = 18;
             this.labelControl1.Text = "Đường dẫn nguồn";
             // 
-            // btnReport
+            // btnChooseTranslatorFile
             // 
-            this.btnReport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReport.ImageOptions.SvgImage")));
-            this.btnReport.ImageOptions.SvgImageSize = new System.Drawing.Size(18, 18);
-            this.btnReport.Location = new System.Drawing.Point(562, 215);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(27, 22);
-            this.btnReport.TabIndex = 31;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            this.btnChooseTranslatorFile.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnChooseTranslatorFile.ImageOptions.SvgImage")));
+            this.btnChooseTranslatorFile.ImageOptions.SvgImageSize = new System.Drawing.Size(18, 18);
+            this.btnChooseTranslatorFile.Location = new System.Drawing.Point(562, 217);
+            this.btnChooseTranslatorFile.Name = "btnChooseTranslatorFile";
+            this.btnChooseTranslatorFile.Size = new System.Drawing.Size(27, 22);
+            this.btnChooseTranslatorFile.TabIndex = 31;
+            this.btnChooseTranslatorFile.Click += new System.EventHandler(this.btnChooseTranslatorFile_Click);
             // 
-            // txtReport
+            // txtTranslatorSource
             // 
-            this.txtReport.Location = new System.Drawing.Point(300, 215);
-            this.txtReport.Name = "txtReport";
-            this.txtReport.Size = new System.Drawing.Size(256, 22);
-            this.txtReport.TabIndex = 30;
+            this.txtTranslatorSource.Location = new System.Drawing.Point(300, 217);
+            this.txtTranslatorSource.Name = "txtTranslatorSource";
+            this.txtTranslatorSource.Size = new System.Drawing.Size(256, 22);
+            this.txtTranslatorSource.TabIndex = 30;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(88, 217);
+            this.labelControl5.Location = new System.Drawing.Point(88, 220);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(132, 17);
+            this.labelControl5.Size = new System.Drawing.Size(70, 17);
             this.labelControl5.TabIndex = 29;
-            this.labelControl5.Text = "Thư mục lưu báo cáo";
+            this.labelControl5.Text = "Nguồn dịch";
             // 
             // btnExport
             // 
             this.btnExport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExport.ImageOptions.SvgImage")));
-            this.btnExport.Location = new System.Drawing.Point(417, 264);
+            this.btnExport.Location = new System.Drawing.Point(417, 329);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(172, 41);
             this.btnExport.TabIndex = 32;
@@ -215,27 +221,65 @@ namespace XOptimization
             this.labelControl7.TabIndex = 35;
             this.labelControl7.Text = "(*)";
             // 
-            // labelControl9
+            // btnReport
             // 
-            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(251, 217);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(18, 16);
-            this.labelControl9.TabIndex = 36;
-            this.labelControl9.Text = "(*)";
+            this.btnReport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReport.ImageOptions.SvgImage")));
+            this.btnReport.ImageOptions.SvgImageSize = new System.Drawing.Size(18, 18);
+            this.btnReport.Location = new System.Drawing.Point(562, 254);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(27, 22);
+            this.btnReport.TabIndex = 39;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // txtReport
+            // 
+            this.txtReport.Location = new System.Drawing.Point(300, 254);
+            this.txtReport.Name = "txtReport";
+            this.txtReport.Size = new System.Drawing.Size(256, 22);
+            this.txtReport.TabIndex = 38;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(88, 256);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(132, 17);
+            this.labelControl10.TabIndex = 37;
+            this.labelControl10.Text = "Thư mục lưu báo cáo";
+            // 
+            // cbbGoogle
+            // 
+            this.cbbGoogle.Location = new System.Drawing.Point(462, 179);
+            this.cbbGoogle.Name = "cbbGoogle";
+            this.cbbGoogle.Properties.Caption = "Dùng google";
+            this.cbbGoogle.Size = new System.Drawing.Size(127, 21);
+            this.cbbGoogle.TabIndex = 40;
+            this.cbbGoogle.CheckedChanged += new System.EventHandler(this.cbbGoogle_CheckedChanged);
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl11.Appearance.Options.UseForeColor = true;
+            this.labelControl11.Location = new System.Drawing.Point(251, 256);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(18, 16);
+            this.labelControl11.TabIndex = 41;
+            this.labelControl11.Text = "(*)";
             // 
             // TranslatorUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.labelControl11);
+            this.Controls.Add(this.cbbGoogle);
+            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.txtReport);
+            this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.btnReport);
-            this.Controls.Add(this.txtReport);
+            this.Controls.Add(this.btnChooseTranslatorFile);
+            this.Controls.Add(this.txtTranslatorSource);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.btnSaveConfig);
             this.Controls.Add(this.cbbLanguage);
@@ -249,10 +293,12 @@ namespace XOptimization
             this.Controls.Add(this.txtSource);
             this.Controls.Add(this.labelControl1);
             this.Name = "TranslatorUC";
-            this.Size = new System.Drawing.Size(713, 372);
+            this.Size = new System.Drawing.Size(689, 443);
             ((System.ComponentModel.ISupportInitialize)(this.txtTarget.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSource.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTranslatorSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReport.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbGoogle.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,13 +317,17 @@ namespace XOptimization
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtSource;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnReport;
-        private DevExpress.XtraEditors.TextEdit txtReport;
+        private DevExpress.XtraEditors.SimpleButton btnChooseTranslatorFile;
+        private DevExpress.XtraEditors.TextEdit txtTranslatorSource;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.SimpleButton btnExport;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.SimpleButton btnReport;
+        private DevExpress.XtraEditors.TextEdit txtReport;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.CheckEdit cbbGoogle;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
     }
 }
