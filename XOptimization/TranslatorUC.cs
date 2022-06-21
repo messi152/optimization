@@ -39,6 +39,7 @@ namespace XOptimization
         private void Init()
         {
             cbbLanguage.Items.Clear();
+            cbbLanguage.Items.Add("English-en");
             cbbLanguage.Items.Add("France-fr");
             cbbLanguage.Items.Add("Germany-de");
             cbbLanguage.Items.Add("Italy-it");

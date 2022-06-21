@@ -221,19 +221,19 @@ namespace XOptimization
                 {
                     foreach (String item in formats)
                     {
-                        if (item.Trim() == "{main}") result += txtPriTitle.Text.Trim() + " ";
-                        else if (item.Trim() == "{attr}") result += txtAttr.Text.Trim() + " ";
+                        if (item.Trim() == "{main}") result += txtPriTitle.Text.Trim() + ".";
+                        else if (item.Trim() == "{attr}") result += txtAttr.Text.Trim() + ".";
                         else if (item.Trim() == "{brand}")
                         {
-                            if (!cbbTranslate.Checked) result += txtBrand.Text.Trim() + " ";
-                            else result += "-" + txtBrand.Text.Trim() + "- ";
+                            if (!cbbTranslate.Checked) result += txtBrand.Text.Trim() + ".";
+                            else result += "[" + txtBrand.Text.Trim() + "] ";
                         }
                         else {
                             Random ran = new Random();
                             if (subs != null && subs.Count() > 0)
                             {
                                 string sub = subs[ran.Next(0, 100) % (subs.Count)].Trim();
-                                if (item.Trim() == "{sub}") result += sub + " ";
+                                if (item.Trim() == "{sub}") result += sub + ".";
                                 subs.Remove(sub);
                             }
                         }

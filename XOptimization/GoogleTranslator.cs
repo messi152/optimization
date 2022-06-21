@@ -13,16 +13,27 @@ namespace XOptimization
     {
         public string Execute(string input, string language)
         {
-            var textArr = input.Split('-');
-            var ouput = TranslateTitle(input, language);
-            if (textArr.Length == 3)
+            var ouput = "";
+            if (!input.Contains("[") && !input.Contains("]")) return TranslateWord(input, language);
+            var textArr = input.Split('[');
+            if (StringUtils.IsNotEmpty(textArr[0]))
+                ouput += TranslateWord(textArr[0], language);
+            if (StringUtils.IsNotEmpty(textArr[1])) { 
+                textArr = textArr[1].Split(']');
+                ouput += " " + textArr[0] + " ";
+                if (StringUtils.IsNotEmpty(textArr[1]))
+                    ouput += TranslateWord(textArr[1], language);
+            }
+            return ouput.Trim();
+        }
+        private string TranslateWord(string input, string language)
+        {
+            var ouput = "";
+            var textArr = input.Split('.');
+            foreach(string text in textArr)
             {
-                ouput = "";
-                if (StringUtils.IsNotEmpty(textArr[0]))
-                    ouput += TranslateTitle(textArr[0], language);
-                ouput += " " + textArr[1] + " ";
-                if (StringUtils.IsNotEmpty(textArr[2]))
-                    ouput += TranslateTitle(textArr[2], language);
+                if (StringUtils.IsNotEmpty(text))
+                    ouput += TranslateTitle(text, language)+" ";
             }
             return ouput;
         }
