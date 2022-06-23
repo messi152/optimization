@@ -149,7 +149,7 @@ namespace XOptimization
             this.Controls.Add(this.txtSource);
             this.Controls.Add(this.labelControl1);
             this.Name = "MovingImage";
-            this.Size = new System.Drawing.Size(712, 328);
+            this.Size = new System.Drawing.Size(712, 316);
             ((System.ComponentModel.ISupportInitialize)(this.txtOutput.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSource.Properties)).EndInit();
             this.ResumeLayout(false);
