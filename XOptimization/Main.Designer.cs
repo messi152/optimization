@@ -42,6 +42,7 @@ namespace XOptimization
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pcMain = new System.Windows.Forms.Panel();
+            this.btnMove = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +56,10 @@ namespace XOptimization
             this.btnCompress,
             this.btnCreateTitle,
             this.btnTranslate,
-            this.btnTitleReport});
+            this.btnTitleReport,
+            this.btnMove});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 6;
+            this.ribbon.MaxItemId = 7;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.compressTab,
@@ -115,6 +117,7 @@ namespace XOptimization
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCompress);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnMove);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Thực hiện";
             // 
@@ -146,6 +149,14 @@ namespace XOptimization
             this.pcMain.Name = "pcMain";
             this.pcMain.Size = new System.Drawing.Size(1109, 412);
             this.pcMain.TabIndex = 5;
+            // 
+            // btnMove
+            // 
+            this.btnMove.Caption = "Di chuyển ảnh";
+            this.btnMove.Id = 6;
+            this.btnMove.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btnMove.Name = "btnMove";
+            this.btnMove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMove_ItemClick);
             // 
             // Main
             // 
@@ -179,5 +190,6 @@ namespace XOptimization
         private DevExpress.XtraBars.BarButtonItem btnTranslate;
         private DevExpress.XtraBars.BarButtonItem btnTitleReport;
         private System.Windows.Forms.Panel pcMain;
+        private DevExpress.XtraBars.BarButtonItem btnMove;
     }
 }

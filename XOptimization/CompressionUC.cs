@@ -11,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -46,6 +47,7 @@ namespace XOptimization
                 txtTarget.Text = setting.Target;
                 txtSource.Text = setting.Source;
                 txtReport.Text = setting.ReportDir;
+                txtDimension.Text = setting.Dimension;
                 cbbCompressQuality.Text = setting.Quality.ToString();
             }
             catch (Exception)
@@ -94,6 +96,11 @@ namespace XOptimization
             if (!Directory.Exists(txtTarget.Text))
             {
                 MessageBox.Show("Đường dẫn đích không tồn tại", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if ((StringUtils.IsNotEmpty(txtDimension.Text) && !txtDimension.Text.Contains("*")) || (StringUtils.IsNotEmpty(txtDimension.Text) && !Regex.Match(txtDimension.Text, "[0-9]+\\*[0-9]+", RegexOptions.IgnoreCase).Success))
+            {
+                MessageBox.Show("Thông tin kích thước không đúng", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (!StringUtils.IsNotEmpty(txtReport.Text))
@@ -151,20 +158,26 @@ namespace XOptimization
                 var fileName = Path.GetFileName(filePath);
                 dest = dest + "\\" + fileName;
 
-                using (Bitmap bitmap = new Bitmap(filePath))
+                using (Image image = Image.FromFile(filePath))
                 {
-                    ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
+                    string[] dimensions = StringUtils.IsNotEmpty(txtDimension.Text)?txtDimension.Text.Split('*'):new string[1];
+                    int height = dimensions.Length == 2 ? Convert.ToInt32(dimensions[1]): image.Height;
+                    int width = dimensions.Length == 2 ? Convert.ToInt32(dimensions[0]) : image.Width;
+                    using (Bitmap bitmap = new Bitmap(image, new Size(width, height)))
+                    {
+                        ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
 
-                    System.Drawing.Imaging.Encoder qualityEncoder = System.Drawing.Imaging.Encoder.Quality;
+                        System.Drawing.Imaging.Encoder qualityEncoder = System.Drawing.Imaging.Encoder.Quality;
 
-                    EncoderParameters encoderParas = new EncoderParameters(1);
+                        EncoderParameters encoderParas = new EncoderParameters(1);
 
-                    EncoderParameter encoderPara = new EncoderParameter(qualityEncoder, quality);
+                        EncoderParameter encoderPara = new EncoderParameter(qualityEncoder, quality);
 
-                    encoderParas.Param[0] = encoderPara;
-                    bitmap.Save(dest, jpgEncoder, encoderParas);
-
+                        encoderParas.Param[0] = encoderPara;
+                        bitmap.Save(dest, jpgEncoder, encoderParas);
+                    }
                 }
+
             }
             catch(Exception e)
             {
@@ -216,6 +229,7 @@ namespace XOptimization
                         compression.Source = txtSource.Text;
                         compression.Target = txtTarget.Text;
                         compression.ReportDir = txtReport.Text;
+                        compression.Dimension = txtDimension.Text;
                         compression.Quality = (int)cbbCompressQuality.SelectedItem;
                         Helper.WriteText(Helper.GetCurrentDirectory() + "\\Data\\compression.json", JsonConvert.SerializeObject(compression, Newtonsoft.Json.Formatting.Indented));
                         MessageBox.Show("Lưu cấu hình thành công", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

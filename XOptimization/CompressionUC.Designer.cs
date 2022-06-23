@@ -49,9 +49,12 @@ namespace XOptimization
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDimension = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTarget.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReport.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDimension.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -97,7 +100,7 @@ namespace XOptimization
             // btnCreate
             // 
             this.btnCreate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCreate.ImageOptions.SvgImage")));
-            this.btnCreate.Location = new System.Drawing.Point(294, 267);
+            this.btnCreate.Location = new System.Drawing.Point(294, 322);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(110, 41);
             this.btnCreate.TabIndex = 9;
@@ -143,7 +146,7 @@ namespace XOptimization
             // btnSaveConfig
             // 
             this.btnSaveConfig.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveConfig.ImageOptions.SvgImage")));
-            this.btnSaveConfig.Location = new System.Drawing.Point(110, 267);
+            this.btnSaveConfig.Location = new System.Drawing.Point(110, 322);
             this.btnSaveConfig.Name = "btnSaveConfig";
             this.btnSaveConfig.Size = new System.Drawing.Size(177, 41);
             this.btnSaveConfig.TabIndex = 17;
@@ -154,7 +157,7 @@ namespace XOptimization
             // 
             this.btnReport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReport.ImageOptions.SvgImage")));
             this.btnReport.ImageOptions.SvgImageSize = new System.Drawing.Size(18, 18);
-            this.btnReport.Location = new System.Drawing.Point(553, 213);
+            this.btnReport.Location = new System.Drawing.Point(553, 252);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(27, 22);
             this.btnReport.TabIndex = 20;
@@ -162,14 +165,14 @@ namespace XOptimization
             // 
             // txtReport
             // 
-            this.txtReport.Location = new System.Drawing.Point(291, 213);
+            this.txtReport.Location = new System.Drawing.Point(291, 252);
             this.txtReport.Name = "txtReport";
             this.txtReport.Size = new System.Drawing.Size(256, 22);
             this.txtReport.TabIndex = 19;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(79, 215);
+            this.labelControl5.Location = new System.Drawing.Point(79, 254);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(132, 17);
             this.labelControl5.TabIndex = 18;
@@ -178,7 +181,7 @@ namespace XOptimization
             // btnExport
             // 
             this.btnExport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExport.ImageOptions.SvgImage")));
-            this.btnExport.Location = new System.Drawing.Point(410, 267);
+            this.btnExport.Location = new System.Drawing.Point(410, 322);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(170, 41);
             this.btnExport.TabIndex = 21;
@@ -219,16 +222,34 @@ namespace XOptimization
             // 
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(244, 215);
+            this.labelControl9.Location = new System.Drawing.Point(244, 254);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(18, 16);
             this.labelControl9.TabIndex = 25;
             this.labelControl9.Text = "(*)";
             // 
+            // txtDimension
+            // 
+            this.txtDimension.Location = new System.Drawing.Point(291, 215);
+            this.txtDimension.Name = "txtDimension";
+            this.txtDimension.Size = new System.Drawing.Size(256, 22);
+            this.txtDimension.TabIndex = 27;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(79, 217);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(133, 17);
+            this.labelControl10.TabIndex = 26;
+            this.labelControl10.Tag = "";
+            this.labelControl10.Text = "Kích thước ảnh (w*h)";
+            // 
             // CompressionUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtDimension);
+            this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.labelControl7);
@@ -249,10 +270,11 @@ namespace XOptimization
             this.Controls.Add(this.txtSource);
             this.Controls.Add(this.labelControl1);
             this.Name = "CompressionUC";
-            this.Size = new System.Drawing.Size(687, 373);
+            this.Size = new System.Drawing.Size(692, 445);
             ((System.ComponentModel.ISupportInitialize)(this.txtSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTarget.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReport.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDimension.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +301,7 @@ namespace XOptimization
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit txtDimension;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
     }
 }

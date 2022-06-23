@@ -51,5 +51,13 @@ namespace XOptimization
             pcMain.Controls.Add(new TranslatorUC(this));
             pcMain.Refresh();
         }
+
+        private void btnMove_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pcMain.Controls.Clear();
+            pcMain.Controls.Add(new MovingImage());
+            pcMain.Controls.Add(new MovingImage());
+            pcMain.Refresh();
+        }
     }
 }

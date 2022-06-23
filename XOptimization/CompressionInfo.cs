@@ -12,5 +12,6 @@ namespace XOptimization
         public string Target { get; set; }
         public int Quality { get; set; }
         public string ReportDir { get; set; }
+        public string Dimension { get; set; }
     }
 }

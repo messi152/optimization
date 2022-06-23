@@ -95,6 +95,12 @@
     <Compile Include="ExcelTranslator.cs" />
     <Compile Include="GoogleTranslator.cs" />
     <Compile Include="ITranslator.cs" />
+    <Compile Include="MovingImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MovingImage.Designer.cs">
+      <DependentUpon>MovingImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="TitlePerformance.cs" />
     <Compile Include="CompressionPerformance.cs" />
     <Compile Include="CompressionUC.cs">
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovingImage.resx">
+      <DependentUpon>MovingImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
