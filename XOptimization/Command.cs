@@ -62,7 +62,33 @@ namespace XOptimization
         {
             if (File.Exists(source))
             {
-                Helper.RunCMD("Copy " + "\""+source+"\"" + " " + "\""+target+ "\"");
+                String fileName = Path.GetFileName(source);
+                String targetFileName = target;
+                if (target.IndexOf("\\")>0) targetFileName = Path.GetFileName(target);
+                string ext = Path.GetExtension(source).ToUpper();
+                if (targetFileName.Equals(fileName) || !target.ToUpper().Contains(ext))
+                {
+                    int ran = 0;
+                    target = target.Trim();
+                    string replace = fileName.ToUpper().Replace(ext,"");
+                    string targetDir = target.Split(new[] { "\\" + targetFileName }, StringSplitOptions.None)[0];
+                    if (!target.ToUpper().Contains(ext))
+                    {
+                        targetDir = target;
+                    }
+                    if (File.Exists(targetDir + "\\" + replace + ext))
+                    {
+                        do
+                        {
+                            ran++;
+                        }
+                        while (File.Exists(targetDir + "\\" + replace + " " + ran + ext));
+                    }
+
+                    if (ran > 0)
+                        target = target+"\\"+fileName.ToUpper().Replace(ext, "") + " " + ran +ext;
+                }
+                Helper.RunCMD("Copy " + "\"" + source + "\"" + " " + "\"" + target + "\"");
             }
         }
         public static void DeleteFolder(String source)

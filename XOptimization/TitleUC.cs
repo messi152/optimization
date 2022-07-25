@@ -88,7 +88,7 @@ namespace XOptimization
                 MessageBox.Show("Đường dẫn nguồn không tồn tại", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (!StringUtils.IsNotEmpty(txtPriTitle.Text))
+ /*           if (!StringUtils.IsNotEmpty(txtPriTitle.Text))
             {
                 MessageBox.Show("Cần nhập tiêu đề chính", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -97,12 +97,7 @@ namespace XOptimization
             {
                 MessageBox.Show("Cần nhập brand", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }
-            if (!StringUtils.IsNotEmpty(txtSubTitle.Text))
-            {
-                MessageBox.Show("Cần nhập tiêu đề phụ", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            }*/
             if (!StringUtils.IsNotEmpty(txtMaxChar.Text))
             {
                 MessageBox.Show("Cần nhập số kí tự tối đa", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -119,15 +114,33 @@ namespace XOptimization
                 }
                 if (format.Equals("{main}")){
                     countMain++;
+                    if (!StringUtils.IsNotEmpty(txtPriTitle.Text))
+                    {
+                        MessageBox.Show("Cần nhập tiêu đề chính", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                     if (countMain>1)
                     {
                         MessageBox.Show("Cấu trúc tiêu đề sai định dạng. Chỉ có 1 tiêu đề chính", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                 }
+                if (format.Equals("{sub}"))
+                {
+                    if (!StringUtils.IsNotEmpty(txtSubTitle.Text))
+                    {
+                        MessageBox.Show("Cần nhập tiêu đề phụ", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
                 if (format.Equals("{brand}"))
                 {
                     countBrand++;
+                    if (!StringUtils.IsNotEmpty(txtBrand.Text))
+                    {
+                        MessageBox.Show("Cần nhập brand", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                     if (countBrand > 1)
                     {
                         MessageBox.Show("Cấu trúc tiêu đề sai định dạng. Chỉ có 1 brand", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -239,17 +252,18 @@ namespace XOptimization
                         }
                     }
                 }
+                if (result.EndsWith(".")) result = result.Substring(0, result.Length - 1);
                 if (Convert.ToInt32(txtMaxChar.Text) < result.Length)
                     result = result.Substring(0, Convert.ToInt32(txtMaxChar.Text));
                 if (type == TYPE.FILE)
                 {
                     string extension = Path.GetExtension(path);
-                    newPath = txtOutput.Text + "\\" + result.Trim() + extension;
+                    newPath = Rename(txtOutput.Text, result, extension);
                     Command.CopyFile(path, newPath);
                 }
                 else
                 {
-                    newPath = txtOutput.Text + "\\" + result.Trim();
+                    newPath = Rename(txtOutput.Text, result);
                     Command.CopyFolder(path, newPath);
                 }
                 if (path.Equals(newPath))
@@ -270,7 +284,29 @@ namespace XOptimization
             }
             logs.Add(performance);
         }
-
+        private bool Exists(string path)
+        {
+            string extension = Path.GetExtension(path).ToUpper();
+            if (StringUtils.IsNotEmpty(extension) && (extension.EndsWith(".PNG") || extension.EndsWith(".JPG") || extension.EndsWith(".JPEG")))
+            {
+                return File.Exists(path);
+            }
+            else return Directory.Exists(path);
+        }
+        private string Rename(string outDir, string fileName, string ext="")
+        {
+            if (Exists(outDir + "\\" + fileName + ext))
+            {
+                int ran = 0;
+                do
+                {
+                    ran++;
+                }
+                while (Exists(outDir + "\\" + fileName+" "+ran+ ext));
+                return outDir + "\\" + fileName + " " + ran + ext;
+            }
+            return outDir + "\\" + fileName.Trim() + ext;
+        }
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
             if (ValidateData())

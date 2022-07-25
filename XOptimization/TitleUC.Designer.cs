@@ -63,7 +63,6 @@ namespace XOptimization
             this.txtBrand = new DevExpress.XtraEditors.TextEdit();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.btnHint = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.cbbTranslate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriTitle.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxChar.Properties)).BeginInit();
@@ -370,16 +369,6 @@ namespace XOptimization
             this.btnHint.TabIndex = 69;
             this.btnHint.MouseHover += new System.EventHandler(this.btnHint_MouseHover);
             // 
-            // labelControl16
-            // 
-            this.labelControl16.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl16.Appearance.Options.UseForeColor = true;
-            this.labelControl16.Location = new System.Drawing.Point(789, 195);
-            this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(18, 16);
-            this.labelControl16.TabIndex = 70;
-            this.labelControl16.Text = "(*)";
-            // 
             // cbbTranslate
             // 
             this.cbbTranslate.AutoSize = true;
@@ -395,7 +384,6 @@ namespace XOptimization
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cbbTranslate);
-            this.Controls.Add(this.labelControl16);
             this.Controls.Add(this.btnHint);
             this.Controls.Add(this.txtBrand);
             this.Controls.Add(this.labelControl19);
@@ -479,7 +467,6 @@ namespace XOptimization
         private DevExpress.XtraEditors.TextEdit txtBrand;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.SimpleButton btnHint;
-        private DevExpress.XtraEditors.LabelControl labelControl16;
         private System.Windows.Forms.CheckBox cbbTranslate;
     }
 }
