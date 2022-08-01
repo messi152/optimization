@@ -147,3 +147,4 @@ C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\`.pdb
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.TranslatorUC.resources
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.csproj.AssemblyReference.cache
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.MovingImage.resources
+C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Debug\XOptimization.ReplacingTitle.resources

@@ -36,13 +36,14 @@ namespace XOptimization
             this.btnCreateTitle = new DevExpress.XtraBars.BarButtonItem();
             this.btnTranslate = new DevExpress.XtraBars.BarButtonItem();
             this.btnTitleReport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMove = new DevExpress.XtraBars.BarButtonItem();
             this.compressTab = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TitleTab = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pcMain = new System.Windows.Forms.Panel();
-            this.btnMove = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReplaceTitle = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,9 +58,10 @@ namespace XOptimization
             this.btnCreateTitle,
             this.btnTranslate,
             this.btnTitleReport,
-            this.btnMove});
+            this.btnMove,
+            this.btnReplaceTitle});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 7;
+            this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.compressTab,
@@ -106,6 +108,14 @@ namespace XOptimization
             this.btnTitleReport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTitleReport.ImageOptions.SvgImage")));
             this.btnTitleReport.Name = "btnTitleReport";
             // 
+            // btnMove
+            // 
+            this.btnMove.Caption = "Di chuyển ảnh";
+            this.btnMove.Id = 6;
+            this.btnMove.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMove.ImageOptions.SvgImage")));
+            this.btnMove.Name = "btnMove";
+            this.btnMove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMove_ItemClick);
+            // 
             // compressTab
             // 
             this.compressTab.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -133,6 +143,7 @@ namespace XOptimization
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnCreateTitle);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTranslate);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnReplaceTitle);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Thực hiện";
             // 
@@ -150,13 +161,13 @@ namespace XOptimization
             this.pcMain.Size = new System.Drawing.Size(1109, 412);
             this.pcMain.TabIndex = 5;
             // 
-            // btnMove
+            // btnReplaceTitle
             // 
-            this.btnMove.Caption = "Di chuyển ảnh";
-            this.btnMove.Id = 6;
-            this.btnMove.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.btnMove.Name = "btnMove";
-            this.btnMove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMove_ItemClick);
+            this.btnReplaceTitle.Caption = "Thay thế tiêu đề";
+            this.btnReplaceTitle.Id = 7;
+            this.btnReplaceTitle.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReplaceTitle.ImageOptions.SvgImage")));
+            this.btnReplaceTitle.Name = "btnReplaceTitle";
+            this.btnReplaceTitle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReplaceTitle_ItemClick);
             // 
             // Main
             // 
@@ -191,5 +202,6 @@ namespace XOptimization
         private DevExpress.XtraBars.BarButtonItem btnTitleReport;
         private System.Windows.Forms.Panel pcMain;
         private DevExpress.XtraBars.BarButtonItem btnMove;
+        private DevExpress.XtraBars.BarButtonItem btnReplaceTitle;
     }
 }

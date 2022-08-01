@@ -95,6 +95,12 @@
     <Compile Include="ExcelTranslator.cs" />
     <Compile Include="GoogleTranslator.cs" />
     <Compile Include="ITranslator.cs" />
+    <Compile Include="ReplacingTitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReplacingTitle.Designer.cs">
+      <DependentUpon>ReplacingTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="MovingImage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReplacingTitle.resx">
+      <DependentUpon>ReplacingTitle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MovingImage.resx">
       <DependentUpon>MovingImage.cs</DependentUpon>

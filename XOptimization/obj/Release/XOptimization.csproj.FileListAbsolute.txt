@@ -71,4 +71,5 @@ C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Release\XOptimizatio
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Release\XOptimization.csproj.CopyComplete
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Release\`.exe
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Release\`.pdb
+C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Release\XOptimization.MovingImage.resources
 C:\Users\ADMIN\source\repos\XOptimization\XOptimization\obj\Release\XOptimization.csproj.AssemblyReference.cache

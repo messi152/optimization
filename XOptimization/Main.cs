@@ -59,5 +59,13 @@ namespace XOptimization
             pcMain.Controls.Add(new MovingImage());
             pcMain.Refresh();
         }
+
+        private void btnReplaceTitle_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pcMain.Controls.Clear();
+            pcMain.Controls.Add(new ReplacingTitle());
+            pcMain.Controls.Add(new ReplacingTitle());
+            pcMain.Refresh();
+        }
     }
 }
