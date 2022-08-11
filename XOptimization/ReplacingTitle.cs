@@ -24,8 +24,39 @@ namespace XOptimization
             {
                 return;
             }
-            Copy(txtSource.Text,txtOutput.Text);
+            Replace(txtSource.Text,txtOutput.Text);
             MessageBox.Show("Thay thế tiêu đề ảnh thành công", "Tin nhắn", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void Replace(string source, string dest)
+        {
+
+            string[] files = Directory.GetFiles(source);
+            foreach (var file in files)
+            {
+                string ext = Path.GetExtension(file).ToUpper();
+                if (ext == ".PNG" || ext == ".JPG" || ext == ".JPEG")
+                    ReplaceImage(file, dest);
+            }
+            List<String> subDirs = Helper.GetSubDirectories(source);
+            if (subDirs != null && subDirs.Count > 0)
+            {
+                foreach (String dir in subDirs)
+                {
+                    string extraDir = dir.Replace(source, "").Replace(txtContent.Text, txtReplace.Text);
+                    Replace(dir, dest + extraDir);
+                }
+            }
+        }
+        private void ReplaceImage(string filePath, string dest)
+        {
+            if (!Directory.Exists(dest))
+            {
+                Directory.CreateDirectory(dest);
+            }
+            var fileName = Path.GetFileName(filePath);
+            dest = dest + "\\" + fileName.Replace(txtContent.Text, txtReplace.Text);
+            Command.CopyFile(filePath, dest);
         }
         private void Copy(string path, string dest)
         {
